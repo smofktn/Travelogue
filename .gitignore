@@ -1,0 +1,47 @@
+# ==========================================
+# MkDocs / Python project .gitignore
+# ==========================================
+
+# --- Python 仮想環境 ---
+venv/
+env/
+.venv/
+ENV/
+
+# --- Python キャッシュ ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- MkDocs ビルド成果物 ---
+site/
+*.lock
+*.log
+
+# --- OS・エディタ関連 ---
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs (PyCharmなど)
+.idea/
+
+# --- その他 ---
+# バックアップファイル
+*~
+*.swp
+*.swo
+
+# --- 環境ファイル ---
+# (必要なら自分で `.env.example` を作成)
+.env
