@@ -35,3 +35,8 @@ pip install --upgrade pip
 ```shell
 pip install mkdocs
 ```
+
+```shell
+mkdocs new [ディレクトリ名]
+# ディレクトリ名配下に docs/ と mkdocs.yml が生成される
+```
