@@ -1,0 +1,7 @@
+mkdocs == 1.6.1
+mkdocs-material == 9.6.22
+
+# 以下，必要に応じてライブラリを記載
+# fontawesome-markdown
+# markdown-include
+# pymdown-extensions
