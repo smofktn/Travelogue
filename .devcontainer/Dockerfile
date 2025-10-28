@@ -18,8 +18,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /workspace
 
 # 依存ファイルをコンテナにコピーしてインストール（キャッシュ効く）
-COPY requirements.txt /workspace/requirements.txt
-RUN pip install --no-cache-dir -r /workspace/requirements.txt
+## COPY requirements.txt /workspace/requirements.txt
+## RUN pip install --no-cache-dir -r /workspace/requirements.txt
 
 # コンテナ起動時に利用するポート
 EXPOSE 8000

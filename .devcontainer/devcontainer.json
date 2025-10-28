@@ -1,19 +1,21 @@
 {
   "name": "mkdocs-devcontainer",
   "build": {
-    "dockerfile": "Dockerfile" //コンテナを「どのDockerfileでビルドするか」を指定
+    "dockerfile": "Dockerfile", //コンテナを「どのDockerfileでビルドするか」を指定
+    "context": "."
+    //Dockerの「ビルドコンテキスト」（=Dockerfileが見える範囲（ファイルがコピーできる範囲））指定．
+    //".."は「devcontainer.jsonの一つ上の階層」
   },
-  "context": "..",
-  //Dockerの「ビルドコンテキスト」（=Dockerfileが見える範囲（ファイルがコピーできる範囲））指定．
-  //".."は「devcontainer.jsonの一つ上の階層」
 
+  // ホスト上のプロジェクトをコンテナ内の /workspace にマウント
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
   "workspaceFolder": "/workspace",
   //コンテナの中でvscodeが開く作業ディレクトリを指定
 
   "forwardPorts": [8000],
   //コンテナ内部のポート番号を外（ホスト）に転送
 
-  "postCreateCommand": "pip install --no-cache-dir -r /workspace/requirements.txt",
+  "postCreateCommand": "pip install --default-timeout=100 --no-cache-dir -r /workspace/requirements.txt -i https://ftp.jaist.ac.jp/pub/python/pypi/simple/",
   //コンテナの作成が完了した後に自動で実行されるコマンド
   //--no-cache-dirはキャッシュを使用せずにインストールするオプション
   //-rはrequirementsファイルを読み込むオプション
