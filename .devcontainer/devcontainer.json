@@ -15,7 +15,7 @@
   "forwardPorts": [8000],
   //コンテナ内部のポート番号を外（ホスト）に転送
 
-  "postCreateCommand": "pip install --default-timeout=100 --no-cache-dir -r /workspace/requirements.txt -i https://ftp.jaist.ac.jp/pub/python/pypi/simple/",
+  "postCreateCommand": "pip install --default-timeout=100 --no-cache-dir -r /workspace/requirements.txt",
   //コンテナの作成が完了した後に自動で実行されるコマンド
   //--no-cache-dirはキャッシュを使用せずにインストールするオプション
   //-rはrequirementsファイルを読み込むオプション
