@@ -1,0 +1,109 @@
+# GitHub Actions ワークフロー設定ファイル
+# このファイルは、MkDocsをビルドしてGitHub Pagesに自動デプロイするための設定です
+
+name: Deploy MkDocs to GitHub Pages
+
+# ワークフローが実行されるタイミングを定義
+on:
+  push:
+    branches: [ main ]  # mainブランチにpushされたときに実行
+  # pull_requestではデプロイしない（セキュリティのため）
+
+# GitHub Pagesにデプロイするために必要な権限
+permissions:
+  contents: read        # リポジトリのコードを読み取る権限
+  pages: write         # GitHub Pagesに書き込む権限
+  id-token: write      # OIDC認証に必要な権限
+
+# 同時実行を制御（同じページのデプロイが同時に実行されないようにする）
+concurrency:
+  group: "pages"
+  cancel-in-progress: false  # 進行中のデプロイをキャンセルしない
+
+# ジョブの定義（2つのジョブ: build と deploy）
+jobs:
+  # ジョブ1: MkDocsサイトをビルドする
+  build:
+    runs-on: ubuntu-latest  # Ubuntu環境で実行
+    
+    steps:
+    # ステップ1: リポジトリのコードをチェックアウト（取得）
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # 全履歴を取得（git-revision-date-localizedプラグイン用）
+
+    # ステップ2: Gitの設定
+    # 注意: この設定は、GitHub Actionsが自動的に実行する際の「実行者の名前」を設定しています
+    # github-actions[bot] は、GitHubが提供する自動実行用のボットアカウントです
+    # これは「誰が」ではなく「何が」実行しているかを示すためのものです
+    # 実際の実行は、あなたのリポジトリの権限で行われます
+    - name: Configure Git Credentials
+      run: |
+        git config user.name github-actions[bot]
+        git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+    # ステップ3: Python環境をセットアップ
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'  # 最新のPython 3.xを使用
+
+    # ステップ4: pipを最新版にアップグレード
+    - name: Upgrade pip
+      run: |
+        python3 -m pip install --upgrade pip
+
+    # ステップ5: pipのキャッシュディレクトリを取得（ビルド時間短縮のため）
+    - name: Get pip cache dir
+      id: pip-cache
+      run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
+
+    # ステップ6: 依存関係をキャッシュ（ビルド時間を短縮）
+    - name: Cache dependencies
+      uses: actions/cache@v4
+      with:
+        path: ${{ steps.pip-cache.outputs.dir }}
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    # ステップ7: requirements.txtから依存関係をインストール
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    # ステップ8: MkDocsサイトをビルド（site/ディレクトリに生成される）
+    - name: Build MkDocs
+      run: mkdocs build
+
+    # ステップ9: GitHub Pagesの設定
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
+
+    # ステップ10: ビルドしたサイトをアーティファクトとしてアップロード
+    # 注意: v3に更新しました（v2が内部で非推奨のupload-artifact@v3を使用していたため）
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: site/  # ビルドされたサイトのディレクトリ
+
+  # ジョブ2: ビルドしたサイトをGitHub Pagesにデプロイ
+  deploy:
+    environment:
+      name: github-pages  # GitHub Pages環境の名前
+      # 以下の url は、デプロイ完了後のサイトのURLを自動的に取得するためのものです
+      # ${{ steps.deployment.outputs.page_url }} の意味：
+      #   - steps.deployment: この下の105行目にある「Deploy to GitHub Pages」ステップ（id: deployment）を参照
+      #   - .outputs.page_url: そのステップが出力した「ページのURL」を取得
+      #   実際のURLは https://[あなたのユーザー名].github.io/[リポジトリ名]/ になります
+      #   この設定により、GitHub Actionsの実行結果画面にURLが表示されます
+      url: ${{ steps.deployment.outputs.page_url }}  # デプロイ後のURL（105行目のid: deploymentを参照）
+    runs-on: ubuntu-latest
+    needs: build  # buildジョブが成功した後に実行
+    
+    steps:
+      # ステップ1: GitHub Pagesにデプロイ
+      # 注意: このステップの id: deployment が、上記98行目の steps.deployment で参照されています
+      # このステップが実行されると、page_url という出力を生成し、それが98行目で使用されます
+      - name: Deploy to GitHub Pages
+        id: deployment  # ← ここが98行目の steps.deployment で参照されている！
+        uses: actions/deploy-pages@v4
