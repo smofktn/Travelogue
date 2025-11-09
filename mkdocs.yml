@@ -1,3 +1,13 @@
 site_name: Travelogue
 theme:
   name: material
+  language: ja
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+nav:
+  - Home: index.md
+  - Map: Map/
+  - Travels: Travel/
+  - Museums: Museum/
+  - Gallery: Gallery/
