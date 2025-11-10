@@ -5,6 +5,9 @@ theme:
   features:
     - navigation.tabs
     - navigation.tabs.sticky
+plugins:
+  - search
+  - awesome-pages
 nav:
   - Home: index.md
   - Map: Map/
