@@ -8,9 +8,4 @@ theme:
 plugins:
   search:
     lang: 'ja'
-nav:
-  - Home: index.md
-  - Map: Map/
-  - Travels: Travel/
-  - Museums: Museum/
-  - Gallery: Gallery/
+
