@@ -42,6 +42,9 @@ Desktop.ini
 *.swp
 *.swo
 
+# --- Codex local marker ---
+.codex
+
 # --- 環境ファイル ---
 # (必要なら自分で `.env.example` を作成)
 .env
