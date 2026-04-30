@@ -12,15 +12,15 @@ TODO:
 
 新しい旅行を追加する手順：
 
-1. `docs/travel/` にコピーして `YYYY-MM-slug.md` のような名前で新規作成する。
-2. ファイルの先頭に Front Matter を記載する（テンプレート：`trip-template.md`）。
+1. `docs/Travel/travel-template.md` をコピーして `YYMMDD_旅行名.md` のような名前で新規作成する。
+2. ファイルの先頭に Front Matter を記載する（テンプレート：`travel-template.md`）。
 3. 画像は `docs/assets/images/trips/<slug>/` に置くと管理しやすい。
 
 ---
 
 テンプレートとサンプル:
 
-- テンプレート: `docs/travel/trip-template.md`
-- サンプル（未作成）: `docs/travel/2025-07-tokyo.md`
+- テンプレート: `docs/Travel/travel-template.md`
+- サンプル: `docs/Travel/260306_下呂温泉.md`
 
 （旅行が増えたらここを自動生成するプラグイン導入を検討する）

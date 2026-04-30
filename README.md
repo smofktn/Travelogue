@@ -18,11 +18,11 @@ sudo apt install build-essential libbz2-dev libdb-dev \
 
 ```shell
 python3 --version
-# Python 3.10.12
+# Python 3.11.x
 ```
 
 ```shell
-sudo apt install python3.10-venv -y
+sudo apt install python3.11-venv -y
 ```
 
 ```shell
@@ -39,10 +39,10 @@ pip install --upgrade pip
 ```
 
 ```shell
-pip install mkdocs
+pip install -r requirements.txt
 ```
 
 ```shell
-mkdocs new [ディレクトリ名]
-# ディレクトリ名配下に docs/ と mkdocs.yml が生成される
+mkdocs serve
+# http://127.0.0.1:8000/ でローカル確認
 ```
