@@ -11,7 +11,7 @@ hide:
 
 <section class="gallery-trip" markdown="1">
 
-<p class="gallery-meta">2026.09.03 – 09.05 ／ 長野県 ／ 7枚</p>
+<p class="gallery-meta">2026.09.03 – 09.05 ／ 長野県 ／ 8枚</p>
 
 ## 小諸散策
 
@@ -34,23 +34,34 @@ hide:
 
 <figure markdown="1">
 
-[![畑で手に持って見せてもらったキャベツ](../Travel/images/260903_小諸散策/260905_キャベツ.jpg){ width=2096 height=1179 loading=lazy decoding=async }](../Travel/images/260903_小諸散策/260905_キャベツ.jpg)
+[![外側が傷み、いくつか穴が空いたキャベツを手に持って見せてもらっている様子](../Travel/images/260903_小諸散策/260905_キャベツ.jpg){ width=2096 height=1179 loading=lazy decoding=async }](../Travel/images/260903_小諸散策/260905_キャベツ.jpg)
 
 <figcaption markdown="1">
 **小諸の圃場 · キャベツ**
 
-畑で見せてもらった、大きなキャベツ。
+外側が傷み、いくつか穴が空いたキャベツ。
 </figcaption>
 </figure>
 
 <figure markdown="1">
 
-[![圃場でレタスの葉を広げて見せてもらっている様子](../Travel/images/260903_小諸散策/260905_レタスとタバコガ.jpg){ width=2096 height=1179 loading=lazy decoding=async }](../Travel/images/260903_小諸散策/260905_レタスとタバコガ.jpg)
+[![タバコガの幼虫に食べられてダメになったレタス。画像左側に幼虫が写っている](../Travel/images/260903_小諸散策/260905_レタスとタバコガ.jpg){ width=2096 height=1179 loading=lazy decoding=async }](../Travel/images/260903_小諸散策/260905_レタスとタバコガ.jpg)
 
 <figcaption markdown="1">
 **小諸の圃場 · レタス**
 
-葉を広げて、レタスを間近で観察。
+タバコガの幼虫に食べられてダメになったレタス。画像の左側に幼虫が写っている。
+</figcaption>
+</figure>
+
+<figure markdown="1">
+
+[![やきとり結びの入口と看板](../Travel/images/260903_小諸散策/260904_焼鳥結び.jpeg){ width=4284 height=5712 loading=lazy decoding=async }](../Travel/images/260903_小諸散策/260904_焼鳥結び.jpeg)
+
+<figcaption markdown="1">
+**やきとり結び**
+
+焼き鳥と酒を楽しんだ店の入口。
 </figcaption>
 </figure>
 

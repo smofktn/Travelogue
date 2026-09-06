@@ -19,6 +19,17 @@
   font-size: 0.75rem;
 }
 
+.md-typeset .travel-entry-photo {
+  max-width: 42rem;
+  margin: 1rem auto;
+}
+
+.md-typeset .travel-entry-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Keep portrait and landscape photos uncropped, with a single reading order. */
 .md-typeset .travel-gallery {
   columns: 2;
