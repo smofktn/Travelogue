@@ -19,7 +19,8 @@
 
 1. `docs/Travel/travel-template.md` をコピーして `YYMMDD_旅行名.md` のような名前で新規作成する。
 2. ファイルの先頭に Front Matter を記載する（テンプレート：`travel-template.md`）。
-3. 画像は `docs/assets/images/trips/<slug>/` に置くと管理しやすい。
+3. 画像は `docs/Travel/images/YYMMDD_旅行名/` に置き、記事から `./images/YYMMDD_旅行名/画像名.jpg` で参照する。
+4. [ギャラリー](../Gallery/index.md)にも掲載するときは、同じ画像を参照して旅行記へのリンクを添える。
 
 ---
 

@@ -1,4 +1,9 @@
 site_name: Travelogue
+markdown_extensions:
+  - attr_list
+  - md_in_html
+extra_css:
+  - stylesheets/gallery.css
 theme:
   name: material
   language: ja

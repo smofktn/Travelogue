@@ -5,7 +5,7 @@ end_date: 2025-07-21
 location: "都道府県・市区町村"
 tags: ["国内", "温泉", "街歩き"]
 cost: 0
-cover: ../assets/images/trips/your-trip/cover.jpg
+cover: ./images/YYMMDD_旅行名/cover.jpg # 画像を用意したら実際のファイル名に変更
 map: ../assets/maps/trips/your-trip.geojson
 ---
 
@@ -82,7 +82,8 @@ map: ../assets/maps/trips/your-trip.geojson
 ## 写真アルバム 📸
 
 <!-- 代表写真や行程に紐づく写真をここに挿入します。 -->
-<!-- ![説明](../assets/images/trips/your-trip/01.jpg) -->
+<!-- 写真は docs/Travel/images/YYMMDD_旅行名/ に置きます。 -->
+<!-- ![説明](./images/YYMMDD_旅行名/01.jpg) -->
 
 ---
 
